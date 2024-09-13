@@ -27,8 +27,10 @@ jobs:
     - name: Create Jira Issue
       id: create_jira
       run: |
-        node  .github/create-jira-issue.js
+      ##make sure you update the path to match the location of your create-jira-issue.js file
+        node  .github/create-jira-issue.js 
       env:
+      ##Make sure you've done a base64 encode and set up a repository secret for the JIRA_API_TOKEN variable. 
         JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
     
     - name: Prepend Jira Issue to PR title
